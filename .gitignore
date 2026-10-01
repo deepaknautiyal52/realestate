@@ -1,0 +1,15 @@
+# Local config with database password and secret keys; create it on each machine (see SETUP.md)
+/wp-config.php
+
+# Generated / temporary files
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/debug.log
+/wp-content/uploads/elementor/css/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+/.idea/
+/.vscode/
