@@ -12,7 +12,7 @@ $params = rec_search_params();
 $base = remove_query_arg(['sort', 'paged']);
 ?>
 <div id="primary" class="content-area rec-page">
-    <section class="rec-hero rec-hero-small">
+    <section class="rec-hero rec-hero-small"<?php if (rec_hero_image_url()) : ?> style="--rec-hero-img: url('<?php echo esc_url(rec_hero_image_url()); ?>')"<?php endif; ?>>
         <div class="rec-container">
             <h1><?php echo esc_html($title); ?></h1>
             <p><?php echo esc_html(sprintf(_n('%s property found', '%s properties found', (int) $wp_query->found_posts, 'realestate-core'), number_format_i18n($wp_query->found_posts))); ?></p>

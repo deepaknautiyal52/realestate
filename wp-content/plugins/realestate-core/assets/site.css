@@ -1,0 +1,91 @@
+/* Site-wide look: Astra header/footer and the Elementor page sections (tagged with rec-* CSS classes). */
+
+body { color: var(--rec-text); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--rec-font-head); letter-spacing: -.01em; }
+::selection { background: var(--rec-accent); color: #fff; }
+
+/* Header */
+.site-header .ast-primary-header-bar {
+  background: rgba(255, 255, 255, .92); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid rgba(228, 231, 235, .8); transition: box-shadow .3s;
+}
+.site-header { position: sticky; top: 0; z-index: 99; }
+.admin-bar .site-header { top: 32px; }
+.rec-scrolled .site-header .ast-primary-header-bar { box-shadow: 0 6px 24px rgba(16, 24, 40, .08); }
+.site-header .site-title a, .site-header .site-title a:hover { font-family: var(--rec-font-head); font-weight: 700; color: var(--rec-primary) !important; letter-spacing: -.02em; }
+.site-header .site-title a::before { content: '⌂'; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; margin-right: 10px; border-radius: 10px; background: linear-gradient(135deg, var(--rec-primary), #1b7a8c); color: #fff; font-size: 20px; vertical-align: middle; }
+.main-header-menu > .menu-item > .menu-link { position: relative; font-weight: 500; color: var(--rec-text); }
+.main-header-menu > .menu-item > .menu-link::after {
+  content: ''; position: absolute; left: 1em; right: 1em; bottom: 18px; height: 2px; border-radius: 2px;
+  background: var(--rec-accent); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.main-header-menu > .menu-item:hover > .menu-link::after,
+.main-header-menu > .current-menu-item > .menu-link::after { transform: scaleX(1); }
+.main-header-menu > .menu-item:hover > .menu-link, .main-header-menu > .current-menu-item > .menu-link { color: var(--rec-primary); }
+.site-header .ast-custom-button {
+  background: var(--rec-accent); border-radius: 999px; padding: 11px 22px; font-weight: 600; color: #fff;
+  box-shadow: 0 8px 20px rgba(227, 100, 20, .28); transition: background .2s, transform .2s;
+}
+.site-header .ast-custom-button:hover { background: var(--rec-accent-dark); transform: translateY(-1px); }
+
+/* Heroes (Elementor containers with a photo background) */
+.rec-home-hero, .rec-page-hero { position: relative; overflow: hidden; }
+.rec-home-hero .elementor-heading-title { text-shadow: 0 4px 24px rgba(0, 0, 0, .25); letter-spacing: -.03em; line-height: 1.1; }
+.rec-home-hero .elementor-widget-heading::before {
+  content: 'Dehradun · Mussoorie · Rishikesh · Nainital'; display: table; margin: 0 auto 18px; padding: 7px 16px; border-radius: 999px;
+  background: rgba(255, 255, 255, .14); border: 1px solid rgba(255, 255, 255, .25); color: #fff;
+  font-size: 13px; font-weight: 600; letter-spacing: .06em; backdrop-filter: blur(6px);
+}
+.rec-home-hero .elementor-widget-text-editor { max-width: 680px; margin-left: auto; margin-right: auto; }
+.rec-home-hero .elementor-widget-shortcode { width: 100%; max-width: 1100px; margin: 18px auto 0; }
+.rec-home-hero .rec-search { background: rgba(255, 255, 255, .97); }
+.rec-page-hero .elementor-heading-title { letter-spacing: -.02em; }
+
+/* Section headings: small accent bar under the first heading in a band */
+.rec-section-band > .e-con-inner > .elementor-widget-heading:first-child .elementor-heading-title::after,
+.rec-section-band > .elementor-widget-heading:first-child .elementor-heading-title::after {
+  content: ''; display: block; width: 56px; height: 4px; border-radius: 4px; margin: 14px auto 0;
+  background: linear-gradient(90deg, var(--rec-accent), #f59e0b);
+}
+.rec-section-band[class*="elementor-element"] { padding-top: 90px; padding-bottom: 90px; }
+.rec-home-locations { background-image: radial-gradient(circle at 10% 0%, rgba(15, 76, 92, .06), transparent 40%), radial-gradient(circle at 90% 100%, rgba(227, 100, 20, .07), transparent 40%); }
+
+/* Feature boxes (Why buy with us / About) */
+.rec-features .elementor-widget-icon-box > .elementor-widget-container {
+  height: 100%; border-radius: var(--rec-radius) !important; border: 1px solid var(--rec-border);
+  box-shadow: var(--rec-shadow); transition: transform .3s, box-shadow .3s;
+}
+.rec-features .elementor-widget-icon-box:hover > .elementor-widget-container { transform: translateY(-6px); box-shadow: var(--rec-shadow-lg); }
+.rec-features .elementor-icon-box-icon .elementor-icon {
+  width: 76px; height: 76px; display: inline-flex; align-items: center; justify-content: center; border-radius: 20px;
+  background: var(--rec-accent-soft); transition: background .3s, transform .3s;
+}
+.rec-features .elementor-widget-icon-box:hover .elementor-icon { background: var(--rec-accent); transform: rotate(-6deg); }
+.rec-features .elementor-widget-icon-box:hover .elementor-icon svg { fill: #fff; }
+.rec-features .elementor-icon-box-title { font-family: var(--rec-font-head); }
+
+/* Call-to-action band */
+.rec-cta-band { position: relative; overflow: hidden; }
+.rec-cta-band::before, .rec-cta-band::after { content: ''; position: absolute; border-radius: 50%; pointer-events: none; }
+.rec-cta-band::before { width: 420px; height: 420px; right: -120px; top: -180px; background: radial-gradient(circle, rgba(227, 100, 20, .35), transparent 70%); }
+.rec-cta-band::after { width: 360px; height: 360px; left: -120px; bottom: -200px; background: radial-gradient(circle, rgba(255, 255, 255, .12), transparent 70%); }
+.rec-cta-band > * { position: relative; z-index: 1; }
+
+/* Elementor buttons site-wide: pill shape to match */
+.elementor-button { border-radius: 999px !important; box-shadow: 0 8px 20px rgba(227, 100, 20, .28); transition: transform .2s, box-shadow .2s, background .2s !important; }
+.elementor-button:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(227, 100, 20, .36); }
+
+/* Footer */
+.site-footer { background: var(--rec-primary-dark); color: rgba(255, 255, 255, .75); }
+.site-footer .site-below-footer-wrap, .site-footer .site-below-footer-wrap[data-section] { background: var(--rec-primary-dark); border-top: 4px solid var(--rec-accent); }
+.site-footer .ast-footer-copyright, .site-footer .ast-footer-copyright p { color: rgba(255, 255, 255, .75); }
+.site-footer a { color: #fff; }
+.site-footer a:hover { color: var(--rec-accent); }
+#ast-scroll-top { background: var(--rec-accent); border-radius: 12px; }
+
+@media (max-width: 782px) { .admin-bar .site-header { top: 46px; } }
+@media (max-width: 600px) { .admin-bar .site-header { top: 0; } }
+@media (max-width: 921px) {
+  .main-header-menu > .menu-item > .menu-link::after { display: none; }
+  .rec-section-band[class*="elementor-element"] { padding-top: 60px; padding-bottom: 60px; }
+}

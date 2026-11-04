@@ -1,2 +1,21 @@
 Username: admin
 Password: AlW2LXjzK48xwOGb
+
+
+
+----
+
+feature engineering - 
+- categorial transformation - sex - 0,1 - is_alone - 1,1,0 - lebel encoding, onehot encoding
+- numerical transformation - scaling - standard scaling - x-min/std = 20-30/10 - -1  , family size = sibsp+parch+1, fare, age
+                                                                    = 30-30/10 - 0
+                                                                    = 40-30/10 - 1
+
+minmax scaling - x-xmin/xmax-xmin = 20-20/40-20, 30-20/40-20,40-20/40-20
+
+----
+
+product-category chatbot do enhancement on it
+data analysis - kaggle - data analysis
+data analysis, model,dashboard, fast api live -
+ 

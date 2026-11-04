@@ -29,6 +29,11 @@ while (have_posts()) :
         'Bedrooms' => rec_get($id, 'bedrooms'),
         'Bathrooms' => rec_get($id, 'bathrooms'),
         'Area' => wp_strip_all_tags(rec_area_html($id)),
+        'Parking' => rec_get($id, 'parking'),
+        'Floor' => rec_get($id, 'floor'),
+        'Furnishing' => rec_get($id, 'furnishing') ? rec_option_label('furnishing', rec_get($id, 'furnishing')) : '',
+        'Facing' => rec_get($id, 'facing') ? rec_option_label('facing', rec_get($id, 'facing')) : '',
+        'Year built' => rec_get($id, 'year_built'),
         'Location' => $location,
     ]);
     ?>

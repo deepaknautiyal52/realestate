@@ -14,6 +14,11 @@ function rec_fields(): array
         'bathrooms' => ['label' => 'Bathrooms', 'type' => 'number'],
         'area' => ['label' => 'Area', 'type' => 'number'],
         'area_unit' => ['label' => 'Area unit', 'type' => 'select', 'options' => ['sqft' => 'sq ft', 'sqyd' => 'sq yd', 'sqm' => 'sq m', 'nali' => 'nali', 'bigha' => 'bigha', 'acre' => 'acre']],
+        'parking' => ['label' => 'Parking spaces', 'type' => 'number'],
+        'floor' => ['label' => 'Floor', 'type' => 'text', 'help' => 'e.g. "2nd of 4" or "Ground".'],
+        'furnishing' => ['label' => 'Furnishing', 'type' => 'select', 'options' => ['' => '— Not specified —', 'unfurnished' => 'Unfurnished', 'semi' => 'Semi-furnished', 'furnished' => 'Fully furnished']],
+        'facing' => ['label' => 'Facing', 'type' => 'select', 'options' => ['' => '— Not specified —', 'north' => 'North', 'south' => 'South', 'east' => 'East', 'west' => 'West', 'north_east' => 'North-East', 'north_west' => 'North-West', 'south_east' => 'South-East', 'south_west' => 'South-West']],
+        'year_built' => ['label' => 'Year built', 'type' => 'number'],
         'address' => ['label' => 'Address / locality', 'type' => 'text'],
         'map_url' => ['label' => 'Google Maps link', 'type' => 'url'],
         'video_url' => ['label' => 'Video tour link (YouTube)', 'type' => 'url'],
@@ -21,6 +26,17 @@ function rec_fields(): array
         'featured' => ['label' => 'Featured on home page', 'type' => 'checkbox'],
         'gallery' => ['label' => 'Photo gallery', 'type' => 'gallery'],
     ];
+}
+
+/** Background photo of the home page's first Elementor section, reused for the listings hero. */
+function rec_hero_image_url(): string
+{
+    static $url = null;
+    if ($url === null) {
+        $data = json_decode((string) get_post_meta((int) get_option('page_on_front'), '_elementor_data', true), true);
+        $url = (string) ($data[0]['settings']['background_image']['url'] ?? '');
+    }
+    return $url;
 }
 
 function rec_get(int $post_id, string $key)
